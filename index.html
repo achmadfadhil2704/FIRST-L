@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Untuk Dzihni Hanifa 💛</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-cream: #FFFDF7;
+      --pastel-yellow: #FFF3B0;
+      --peach-soft: #FFD6BA;
+      --peach-deep: #FFB085;
+      --pink-buster: #FF6B9D;
+      --pink-buster-dark: #D9487B;
+      --pink-soft: #FFE4EE;
+      --ink-cocoa: #3D2C2E;
+      --ink-muted: #7A6365;
+      --card-shadow: 0 18px 45px rgba(217, 132, 107, 0.16), 0 4px 14px rgba(61, 44, 46, 0.05);
+      --font-display: 'Fredoka', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+      --font-body: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: var(--font-body);
+      color: var(--ink-cocoa);
+      background-color: var(--bg-cream);
+      overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 20px 16px;
+      position: relative;
+      background-image:
+        radial-gradient(circle at 15% 18%, rgba(255, 243, 176, 0.75) 0%, transparent 45%),
+        radial-gradient(circle at 85% 22%, rgba(255, 214, 186, 0.65) 0%, transparent 42%),
+        radial-gradient(circle at 50% 90%, rgba(255, 228, 238, 0.7) 0%, transparent 50%);
+    }
+
+    /* Decorative floating background blobs */
+    .bg-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(42px);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatBlob 12s ease-in-out infinite alternate;
+    }
+
+    .bg-blob--yellow {
+      width: 260px;
+      height: 260px;
+      background: var(--pastel-yellow);
+      top: -60px;
+      left: -60px;
+    }
+
+    .bg-blob--peach {
+      width: 240px;
+      height: 240px;
+      background: var(--peach-soft);
+      bottom: -50px;
+      right: -50px;
+      animation-delay: -5s;
+    }
+
+    @keyframes floatBlob {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(18px, 22px) scale(1.08); }
+    }
+
+    /* Confetti canvas */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    /* Sound toggle button */
+    .sound-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid var(--peach-soft);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink-cocoa);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(61, 44, 46, 0.08);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    .sound-toggle:hover {
+      transform: translateY(-1px);
+      background: #fff;
+    }
+
+    .sound-toggle:focus-visible {
+      outline: 3px solid var(--pink-buster);
+      outline-offset: 2px;
+    }
+
+    /* Main stage card */
+    .stage-card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 2.5px solid #FFE8D6;
+      border-radius: 32px;
+      padding: 32px 24px 30px;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    /* Mascot container */
+    .mascot-wrap {
+      width: 138px;
+      height: 126px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .mascot-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .mascot-svg.bounce {
+      animation: mascotBounce 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes mascotBounce {
+      0% { transform: scale(1) translateY(0); }
+      40% { transform: scale(1.12, 0.92) translateY(4px); }
+      75% { transform: scale(0.96, 1.06) translateY(-10px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    /* Stage visibility */
+    .stage {
+      display: none;
+      animation: stageEnter 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .stage.is-active {
+      display: block;
+    }
+
+    @keyframes stageEnter {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    h1, h2 {
+      font-family: var(--font-display);
+      color: var(--ink-cocoa);
+      margin: 0 0 12px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(1.55rem, 5vw, 1.95rem);
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 4.5vw, 1.75rem);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink-muted);
+      margin: 0 auto 24px;
+      max-width: 38ch;
+    }
+
+    /* Button group */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      font-family: var(--font-display);
+      font-size: 1.02rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 20px;
+      padding: 14px 22px;
+      cursor: pointer;
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.16s ease, background-color 0.16s ease;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--pink-buster);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: var(--pink-buster);
+      color: #fff;
+      box-shadow: 0 6px 0 var(--pink-buster-dark), 0 10px 20px rgba(255, 107, 157, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #FF5790;
+    }
+
+    .btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 2px 0 var(--pink-buster-dark), 0 4px 10px rgba(255, 107, 157, 0.25);
+    }
+
+    .btn-peach {
+      background: var(--peach-soft);
+      color: var(--ink-cocoa);
+      box-shadow: 0 5px 0 #E8B18E, 0 8px 16px rgba(255, 176, 133, 0.25);
+    }
+
+    .btn-peach:hover {
+      transform: translateY(-2px);
+      background: #FFCBA8;
+    }
+
+    .btn-peach:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #E8B18E;
+    }
+
+    .btn-yellow {
+      background: var(--pastel-yellow);
+      color: var(--ink-cocoa);
+      box-shadow: 0 5px 0 #E5D173, 0 8px 16px rgba(229, 209, 115, 0.25);
+    }
+
+    .btn-yellow:hover {
+      transform: translateY(-2px);
+      background: #FFEE99;
+    }
+
+    .btn-yellow:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #E5D173;
+    }
+
+    /* Stage 2: Badmood Buster */
+    .buster-btn {
+      width: 100%;
+      max-width: 310px;
+      padding: 20px 26px;
+      font-size: 1.24rem;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #FF7AA8 0%, #FF5C93 100%);
+      color: #fff;
+      box-shadow: 0 8px 0 var(--pink-buster-dark), 0 14px 28px rgba(255, 107, 157, 0.34);
+      margin: 4px auto 18px;
+      position: relative;
+    }
+
+    .buster-btn:hover {
+      transform: translateY(-2px) scale(1.015);
+    }
+
+    .buster-btn:active {
+      transform: translateY(5px) scale(0.985);
+      box-shadow: 0 3px 0 var(--pink-buster-dark), 0 6px 14px rgba(255, 107, 157, 0.28);
+    }
+
+    .message-bubble {
+      background: var(--bg-cream);
+      border: 2px dashed var(--peach-deep);
+      border-radius: 22px;
+      padding: 18px 20px;
+      min-height: 92px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .message-bubble.pop {
+      animation: bubblePop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes bubblePop {
+      0% { transform: scale(0.95); }
+      55% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    .message-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--ink-cocoa);
+      margin: 0;
+    }
+
+    .click-counter {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--pink-buster-dark);
+    }
+
+    .next-stage-wrap {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-next-subtle {
+      background: var(--pastel-yellow);
+      color: var(--ink-cocoa);
+      font-size: 0.95rem;
+      padding: 12px 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 0 #E5D173;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-next-subtle.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    /* Stage 3: Trap button */
+    .trap-arena {
+      position: relative;
+      min-height: 110px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    #btn-still-mad {
+      transition: left 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.15s ease;
+      z-index: 35;
+    }
+
+    .trap-hint {
+      margin-top: 16px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      min-height: 22px;
+    }
+
+    /* Stage 4: Love letter */
+    .letter-card {
+      background: linear-gradient(180deg, #FFFDF5 0%, #FFF7EA 100%);
+      border: 2px solid var(--peach-soft);
+      border-radius: 24px;
+      padding: 22px 20px;
+      text-align: left;
+      margin: 14px 0 22px;
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, 0.7);
+      position: relative;
+    }
+
+    .letter-greeting {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--pink-buster-dark);
+      margin: 0 0 10px;
+    }
+
+    .letter-body {
+      font-size: 0.98rem;
+      line-height: 1.68;
+      color: var(--ink-cocoa);
+      margin: 0 0 14px;
+    }
+
+    .pecel-invite {
+      background: var(--pastel-yellow);
+      border-radius: 16px;
+      padding: 14px 16px;
+      border: 2px dashed #E5C85B;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .pecel-emoji {
+      font-size: 1.7rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .pecel-text {
+      margin: 0;
+      font-size: 0.94rem;
+      line-height: 1.5;
+      font-weight: 700;
+      color: var(--ink-cocoa);
+    }
+
+    .letter-sign {
+      margin: 14px 0 0;
+      text-align: right;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--pink-buster-dark);
+    }
+
+    /* Floating +1 text particles */
+    .float-pop {
+      position: fixed;
+      pointer-events: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--pink-buster-dark);
+      z-index: 60;
+      animation: floatUpPop 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes floatUpPop {
+      0% { opacity: 1; transform: translate(-50%, 0) scale(0.8); }
+      40% { opacity: 1; transform: translate(-50%, -28px) scale(1.1); }
+      100% { opacity: 0; transform: translate(-50%, -62px) scale(0.95); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bg-blob, .mascot-svg.bounce, .stage, .message-bubble.pop, .float-pop {
+        animation: none !important;
+      }
+      #btn-still-mad {
+        transition: none !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .stage-card {
+        padding: 26px 18px 24px;
+        border-radius: 26px;
+      }
+      .btn {
+        padding: 13px 18px;
+        font-size: 0.96rem;
+      }
+      .buster-btn {
+        font-size: 1.12rem;
+        padding: 18px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-blob bg-blob--yellow" aria-hidden="true"></div>
+  <div class="bg-blob bg-blob--peach" aria-hidden="true"></div>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <button id="sound-toggle" class="sound-toggle" type="button" aria-label="Aktifkan atau matikan suara">
+    <span id="sound-icon">🔊</span>
+    <span id="sound-label">Suara Nyala</span>
+  </button>
+
+  <main class="stage-card">
+    <!-- Custom Cute Cozy Cat SVG ("Mochi") -->
+    <div class="mascot-wrap" aria-hidden="true">
+      <svg id="mascot-svg" class="mascot-svg" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Soft yellow halo -->
+        <circle cx="80" cy="76" r="56" fill="#FFF3B0" opacity="0.7" />
+        <!-- Ears -->
+        <path d="M40 52 L32 20 C31 15 37 12 41 16 L62 34 Z" fill="#FFE6D5" stroke="#3D2C2E" stroke-width="3.5" stroke-linejoin="round" />
+        <path d="M120 52 L128 20 C129 15 123 12 119 16 L98 34 Z" fill="#FFE6D5" stroke="#3D2C2E" stroke-width="3.5" stroke-linejoin="round" />
+        <path d="M42 46 L37 25 L55 37 Z" fill="#FFB5C5" />
+        <path d="M118 46 L123 25 L105 37 Z" fill="#FFB5C5" />
+        <!-- Chubby head/body -->
+        <ellipse cx="80" cy="80" rx="50" ry="44" fill="#FFFDF9" stroke="#3D2C2E" stroke-width="3.5" />
+        <!-- Cute peach forehead patch -->
+        <path d="M62 37 C72 34 88 34 98 37 C94 49 86 52 80 52 C74 52 66 49 62 37 Z" fill="#FFD6BA" />
+        <!-- Cheeks blush -->
+        <ellipse cx="48" cy="84" rx="9" ry="5.5" fill="#FFB5C5" opacity="0.75" />
+        <ellipse cx="112" cy="84" rx="9" ry="5.5" fill="#FFB5C5" opacity="0.75" />
+        <!-- Whiskers -->
+        <path d="M24 76 L39 79 M22 86 L38 85" stroke="#3D2C2E" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M136 76 L121 79 M138 86 L122 85" stroke="#3D2C2E" stroke-width="2.5" stroke-linecap="round" />
+
+        <!-- Expression 1: Sympathetic / Sad-cute (Stage 1) -->
+        <g id="face-sad">
+          <circle cx="58" cy="72" r="5" fill="#3D2C2E" />
+          <circle cx="56.5" cy="70" r="1.8" fill="#FFF" />
+          <circle cx="102" cy="72" r="5" fill="#3D2C2E" />
+          <circle cx="100.5" cy="70" r="1.8" fill="#FFF" />
+          <!-- worried eyebrows -->
+          <path d="M49 62 Q56 59 62 63" stroke="#3D2C2E" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M111 62 Q104 59 98 63" stroke="#3D2C2E" stroke-width="2.5" stroke-linecap="round" />
+          <!-- tiny cat mouth -->
+          <path d="M74 82 Q80 78 86 82" stroke="#3D2C2E" stroke-width="2.8" stroke-linecap="round" />
+          <!-- sweat drop -->
+          <path d="M122 52 C122 52 127 59 127 63 C127 66 124.8 68 122 68 C119.2 68 117 66 117 63 C117 59 122 52 122 52 Z" fill="#A8E6CF" stroke="#3D2C2E" stroke-width="2" />
+        </g>
+
+        <!-- Expression 2: Cheering / Happy (Stage 2) -->
+        <g id="face-cheer" style="display:none;">
+          <path d="M51 73 Q58 64 65 73" stroke="#3D2C2E" stroke-width="3.5" stroke-linecap="round" />
+          <path d="M95 73 Q102 64 109 73" stroke="#3D2C2E" stroke-width="3.5" stroke-linecap="round" />
+          <path d="M72 80 Q76 86 80 80 Q84 86 88 80" stroke="#3D2C2E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+          <!-- sparkles -->
+          <path d="M22 42 L25 49 L32 52 L25 55 L22 62 L19 55 L12 52 L19 49 Z" fill="#FF6B9D" />
+          <path d="M138 40 L140 45 L145 47 L140 49 L138 54 L136 49 L131 47 L136 45 Z" fill="#FFB085" />
+        </g>
+
+        <!-- Expression 3: Pleading / Curious (Stage 3) -->
+        <g id="face-plead" style="display:none;">
+          <circle cx="58" cy="72" r="6.5" fill="#3D2C2E" />
+          <circle cx="55.8" cy="69.5" r="2.4" fill="#FFF" />
+          <circle cx="60.5" cy="74.5" r="1.2" fill="#FFF" />
+          <circle cx="102" cy="72" r="6.5" fill="#3D2C2E" />
+          <circle cx="99.8" cy="69.5" r="2.4" fill="#FFF" />
+          <circle cx="104.5" cy="74.5" r="1.2" fill="#FFF" />
+          <path d="M73 82 Q76.5 86 80 81 Q83.5 86 87 82" stroke="#3D2C2E" stroke-width="2.8" stroke-linecap="round" />
+        </g>
+
+        <!-- Expression 4: Full of Love (Stage 4) -->
+        <g id="face-love" style="display:none;">
+          <!-- Heart eyes -->
+          <path d="M58 77 C58 77 49 71 49 66 C49 63 51.5 61 54 61 C56 61 57.5 62.5 58 64 C58.5 62.5 60 61 62 61 C64.5 61 67 63 67 66 C67 71 58 77 58 77 Z" fill="#FF6B9D" />
+          <path d="M102 77 C102 77 93 71 93 66 C93 63 95.5 61 98 61 C100 61 101.5 62.5 102 64 C102.5 62.5 104 61 106 61 C108.5 61 111 63 111 66 C111 71 102 77 102 77 Z" fill="#FF6B9D" />
+          <path d="M71 81 Q80 91 89 81" stroke="#3D2C2E" stroke-width="3" stroke-linecap="round" />
+          <!-- Floating heart above -->
+          <path d="M80 23 C80 23 70 16 70 10 C70 6.5 73 4 76 4 C78 4 79.5 5.5 80 7 C80.5 5.5 82 4 84 4 C87 4 90 6.5 90 10 C90 16 80 23 80 23 Z" fill="#FF6B9D" />
+        </g>
+
+        <!-- Tiny paws -->
+        <ellipse cx="56" cy="121" rx="11" ry="7" fill="#FFFDF9" stroke="#3D2C2E" stroke-width="3" />
+        <ellipse cx="104" cy="121" rx="11" ry="7" fill="#FFFDF9" stroke="#3D2C2E" stroke-width="3" />
+      </svg>
+    </div>
+
+    <!-- STAGE 1: Pertanyaan Pembuka -->
+    <section id="stage-1" class="stage is-active" aria-labelledby="q1-title">
+      <h1 id="q1-title">Apakah hari ini berat banget buat kamu?</h1>
+      <p class="subtitle">Jawab jujur ya, Dzihni. Mochi udah siap dengerin dan nemenin kamu di sini 🤍</p>
+      <div class="btn-row">
+        <button id="btn-heavy" class="btn btn-peach" type="button">Iya banget 😭</button>
+        <button id="btn-lie" class="btn btn-yellow" type="button">Enggak kok (bohong)</button>
+      </div>
+    </section>
+
+    <!-- STAGE 2: Tombol Penghancur Badmood -->
+    <section id="stage-2" class="stage" aria-labelledby="q2-title">
+      <h2 id="q2-title">Sini, hancurin dulu badmood-nya!</h2>
+      <p id="stage2-intro" class="subtitle">Klik tombol di bawah ini sebanyak yang kamu mau ya~</p>
+
+      <button id="btn-buster" class="btn buster-btn" type="button">
+        <span>Penghancur Badmood</span>
+        <span>💖</span>
+      </button>
+
+      <div id="message-bubble" class="message-bubble" aria-live="polite">
+        <p id="message-text" class="message-text">Pencet tombol pink di atas buat mulai dosis semangat &amp; gombalan! ✨</p>
+        <div id="click-counter" class="click-counter" style="display:none;"></div>
+      </div>
+
+      <div class="next-stage-wrap">
+        <button id="btn-to-stage3" class="btn btn-next-subtle" type="button">
+          Udah lumayan nih, lanjut yuk ✨
+        </button>
+      </div>
+    </section>
+
+    <!-- STAGE 3: Tombol Jebakan Lucu -->
+    <section id="stage-3" class="stage" aria-labelledby="q3-title">
+      <h2 id="q3-title">Sudah baikan belum sekarang?</h2>
+      <p class="subtitle">Pilih dengan hati yang tenang dan jujur ya tuan putri~ 👑</p>
+
+      <div class="trap-arena">
+        <button id="btn-all-good" class="btn btn-primary" type="button">Sudah dong ❤️</button>
+        <button id="btn-still-mad" class="btn btn-peach" type="button">Masih badmood 😤</button>
+      </div>
+
+      <p id="trap-hint" class="trap-hint"></p>
+    </section>
+
+    <!-- STAGE 4: Halaman Akhir -->
+    <section id="stage-4" class="stage" aria-labelledby="q4-title">
+      <h2 id="q4-title">Yeay! Akhirnya senyum lagi 🥰</h2>
+
+      <article class="letter-card">
+        <p class="letter-greeting">Untuk Dzihni Hanifa tersayang,</p>
+        <p class="letter-body">
+          Makasih ya udah bertahan dan ngelewatin hari ini. Kalau nanti ada hal-hal yang bikin kamu capek, kesel, atau pengen ngambek lagi, inget selalu kalau kamu gak sendirian. Ada aku yang selalu siap jadi tempat pulang, tempat cerita, dan tempat kamu manja-manja kapan aja.
+        </p>
+        <div class="pecel-invite">
+          <span class="pecel-emoji" aria-hidden="true">🍽️</span>
+          <p class="pecel-text">
+            Sebagai hadiah karena udah baikan, ayo kita jajan <strong>Pecel Lele</strong> favorit kamu! Lele goreng garing + sambelnya yang mantap, hari ini aku yang traktir. Tinggal bilang aja ya mau berangkat jam berapa 💛
+          </p>
+        </div>
+        <p class="letter-sign">Sayang kamu banyak-banyak ❤️</p>
+      </article>
+
+      <button id="btn-restart" class="btn btn-yellow" type="button">Main lagi dari awal 🔄</button>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      // --- Encouraging -> Increasingly Gombal Messages (12 variations) ---
+      const gombalMessages = [
+        "Tarik napas dulu pelan-pelan... semua capeknya hari ini boleh ditaruh dulu di sini ya.",
+        "Kamu udah hebat banget bisa ngelewatin hari ini, Dzihni. Aku bangga banget sama kamu! 💛",
+        "Kalau dunia lagi nyebelin, sini ngumpet dulu di pelukan aku (virtual dulu ya sambil kuusap kepalanya 🤍).",
+        "Tau gak bedanya kamu sama WiFi? Kalau WiFi nyambung ke HP, kalau kamu nyambungnya langsung ke hati aku.",
+        "Senyum dikit dong... soalnya kalau kamu cemberut, matahari aja ikutan minder kalah manis.",
+        "Capeknya boleh numpuk, tapi jangan lupa kamu selalu punya aku di tim kamu buat dukung kamu terus.",
+        "Eh, pantesan tadi langit mendung... ternyata gara-gara tuan putri Dzihni lagi badmood ya? ☁️✨",
+        "Kamu tuh kayak charger fast-charging, liat kamu senyum dikit aja energi aku langsung penuh 100%.",
+        "Jangan lama-lama ngambeknya ya, nanti pipinya makin gemoy, aku makin susah nahan gemes!",
+        "Katanya gula itu manis, tapi kayaknya pabrik gula bakal gulung tikar kalau saingan sama senyum kamu.",
+        "Udah ah badmood-nya, kasihan bantalnya nanti baper dipeluk mulu... mending aku aja yang dipeluk 😝",
+        "Fix, Dzihni Hanifa adalah orang paling gemesin sedunia! Gak ada obat, cuma bisa diobatin pake kasih sayang aku + makanan enak! 💖"
+      ];
+
+      const dodgeTexts = [
+        "Eits, gak kena! 😜",
+        "Wleeek, kabur~ 💨",
+        "Gak boleh pencet ini!",
+        "Klik yang merah muda aja ❤️",
+        "Masih ngejar aja nih? 🤭",
+        "Menyerah aja deh~ 💛"
+      ];
+
+      // --- State ---
+      let soundEnabled = true;
+      let audioCtx = null;
+      let busterClicks = 0;
+      let dodgeCount = 0;
+
+      // --- Elements ---
+      const stages = {
+        1: document.getElementById("stage-1"),
+        2: document.getElementById("stage-2"),
+        3: document.getElementById("stage-3"),
+        4: document.getElementById("stage-4")
+      };
+
+      const faces = {
+        sad: document.getElementById("face-sad"),
+        cheer: document.getElementById("face-cheer"),
+        plead: document.getElementById("face-plead"),
+        love: document.getElementById("face-love")
+      };
+
+      const mascotSvg = document.getElementById("mascot-svg");
+      const soundToggle = document.getElementById("sound-toggle");
+      const soundIcon = document.getElementById("sound-icon");
+      const soundLabel = document.getElementById("sound-label");
+
+      const stage2Intro = document.getElementById("stage2-intro");
+      const btnBuster = document.getElementById("btn-buster");
+      const messageBubble = document.getElementById("message-bubble");
+      const messageText = document.getElementById("message-text");
+      const clickCounter = document.getElementById("click-counter");
+      const btnToStage3 = document.getElementById("btn-to-stage3");
+
+      const btnAllGood = document.getElementById("btn-all-good");
+      const btnStillMad = document.getElementById("btn-still-mad");
+      const trapHint = document.getElementById("trap-hint");
+
+      // --- Web Audio API Cute Sound Effects ---
+      function getAudioContext() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) {
+            audioCtx = new AudioContextClass();
+          }
+        }
+        if (audioCtx && audioCtx.state === "suspended") {
+          audioCtx.resume().catch(() => {});
+        }
+        return audioCtx;
+      }
+
+      function playTone(freq, duration, type = "sine", startTimeOffset = 0, gainVal = 0.14) {
+        if (!soundEnabled) return;
+        const ctx = getAudioContext();
+        if (!ctx) return;
+
+        const now = ctx.currentTime + startTimeOffset;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(gainVal, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now);
+        osc.stop(now + duration + 0.02);
+      }
+
+      function playPopChime(pitchStep = 0) {
+        const base = 523.25 * Math.pow(1.059463, pitchStep % 12); // C5 climbing
+        playTone(base, 0.14, "sine", 0, 0.14);
+        playTone(base * 1.25, 0.18, "triangle", 0.05, 0.1);
+      }
+
+      function playDodgeWhoosh() {
+        if (!soundEnabled) return;
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(380, now);
+        osc.frequency.exponentialRampToValueAtTime(680, now + 0.12);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.13);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.14);
+      }
+
+      function playCelebration() {
+        const notes = [523.25, 659.25, 783.99, 1046.5];
+        notes.forEach((n, idx) => playTone(n, 0.25, "triangle", idx * 0.08, 0.15));
+      }
+
+      soundToggle.addEventListener("click", () => {
+        soundEnabled = !soundEnabled;
+        soundIcon.textContent = soundEnabled ? "🔊" : "🔇";
+        soundLabel.textContent = soundEnabled ? "Suara Nyala" : "Suara Mati";
+        if (soundEnabled) playPopChime(2);
+      });
+
+      // --- Heart Confetti System (Canvas) ---
+      const canvas = document.getElementById("confetti-canvas");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+      let animId = null;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+
+      const confettiColors = ["#FF6B9D", "#FFB085", "#FFE066", "#FF8FB1", "#FFD6BA"];
+
+      function drawHeart(x, y, size, rotation, color, alpha) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rotation);
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        const s = size / 2;
+        ctx.moveTo(0, s * 0.4);
+        ctx.bezierCurveTo(-s, -s * 0.4, -s * 1.1, s * 0.7, 0, s * 1.4);
+        ctx.bezierCurveTo(s * 1.1, s * 0.7, s, -s * 0.4, 0, s * 0.4);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function spawnHeartBurst(originX, originY, count = 24) {
+        for (let i = 0; i < count; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = 3 + Math.random() * 6.5;
+          particles.push({
+            x: originX,
+            y: originY,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed - 3.5,
+            gravity: 0.18,
+            size: 10 + Math.random() * 10,
+            rotation: Math.random() * Math.PI,
+            vr: (Math.random() - 0.5) * 0.14,
+            color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+            alpha: 1,
+            decay: 0.012 + Math.random() * 0.01
+          });
+        }
+        if (!animId) {
+          animateConfetti();
+        }
+      }
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles = particles.filter((p) => p.alpha > 0.02);
+
+        for (const p of particles) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += p.gravity;
+          p.vx *= 0.985;
+          p.rotation += p.vr;
+          p.alpha -= p.decay;
+          drawHeart(p.x, p.y, p.size, p.rotation, p.color, Math.max(0, p.alpha));
+        }
+
+        if (particles.length > 0) {
+          animId = requestAnimationFrame(animateConfetti);
+        } else {
+          animId = null;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+      }
+
+      // --- Helper: Switch Stage & Mascot ---
+      function setMascotFace(faceKey) {
+        Object.keys(faces).forEach((k) => {
+          faces[k].style.display = k === faceKey ? "block" : "none";
+        });
+        bounceMascot();
+      }
+
+      function bounceMascot() {
+        mascotSvg.classList.remove("bounce");
+        void mascotSvg.offsetWidth;
+        mascotSvg.classList.add("bounce");
+      }
+
+      function goToStage(num) {
+        Object.values(stages).forEach((el) => el.classList.remove("is-active"));
+        stages[num].classList.add("is-active");
+
+        if (num === 1) setMascotFace("sad");
+        if (num === 2) setMascotFace("cheer");
+        if (num === 3) setMascotFace("plead");
+        if (num === 4) setMascotFace("love");
+      }
+
+      // --- Stage 1 Handlers ---
+      document.getElementById("btn-heavy").addEventListener("click", () => {
+        playPopChime(0);
+        stage2Intro.textContent = "Sini sini, hari ini berat ya? Istirahat bentar dan pencet tombol ini ya~";
+        goToStage(2);
+      });
+
+      document.getElementById("btn-lie").addEventListener("click", () => {
+        playPopChime(2);
+        stage2Intro.textContent = "Halah ketahuan bohongnya~ gak apa-apa, sini Mochi bantu usir badmood-nya!";
+        goToStage(2);
+      });
+
+      // --- Stage 2: Badmood Buster ---
+      function spawnFloatingWord(x, y, text) {
+        const el = document.createElement("span");
+        el.className = "float-pop";
+        el.textContent = text;
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 900);
+      }
+
+      btnBuster.addEventListener("click", (e) => {
+        const msgIndex = busterClicks % gombalMessages.length;
+        busterClicks += 1;
+
+        playPopChime(busterClicks);
+        bounceMascot();
+
+        const rect = btnBuster.getBoundingClientRect();
+        const originX = e.clientX || rect.left + rect.width / 2;
+        const originY = e.clientY || rect.top + rect.height / 2;
+
+        spawnHeartBurst(originX, originY, 22);
+        const popWords = ["+1 Sayang 💖", "Pyuuung! ✨", "Cup cup 🤍", "Gemoy! 🌸", "Muach! 💕"];
+        spawnFloatingWord(originX, originY - 10, popWords[busterClicks % popWords.length]);
+
+        messageText.textContent = gombalMessages[msgIndex];
+        clickCounter.style.display = "block";
+        clickCounter.textContent = `Dosis penghancur badmood ke-${busterClicks} ✨`;
+
+        messageBubble.classList.remove("pop");
+        void messageBubble.offsetWidth;
+        messageBubble.classList.add("pop");
+
+        if (busterClicks >= 3) {
+          btnToStage3.classList.add("is-visible");
+        }
+      });
+
+      btnToStage3.addEventListener("click", () => {
+        playPopChime(5);
+        resetTrapButton();
+        goToStage(3);
+      });
+
+      // --- Stage 3: Runaway Trap Button ---
+      function resetTrapButton() {
+        dodgeCount = 0;
+        btnStillMad.style.position = "";
+        btnStillMad.style.left = "";
+        btnStillMad.style.top = "";
+        btnStillMad.textContent = "Masih badmood 😤";
+        btnAllGood.style.transform = "";
+        trapHint.textContent = "";
+      }
+
+      function moveTrapButton() {
+        dodgeCount += 1;
+        playDodgeWhoosh();
+        bounceMascot();
+
+        const btnRect = btnStillMad.getBoundingClientRect();
+        const goodRect = btnAllGood.getBoundingClientRect();
+        const pad = 18;
+        const maxX = Math.max(pad, window.innerWidth - btnRect.width - pad);
+        const maxY = Math.max(pad, window.innerHeight - btnRect.height - pad);
+
+        let nextX = pad;
+        let nextY = pad;
+
+        // Try up to 15 times to avoid overlapping the "Sudah dong" button
+        for (let attempt = 0; attempt < 15; attempt++) {
+          const candidateX = pad + Math.random() * (maxX - pad);
+          const candidateY = pad + Math.random() * (maxY - pad);
+
+          const overlapsGood =
+            candidateX < goodRect.right + 16 &&
+            candidateX + btnRect.width > goodRect.left - 16 &&
+            candidateY < goodRect.bottom + 16 &&
+            candidateY + btnRect.height > goodRect.top - 16;
+
+          if (!overlapsGood) {
+            nextX = candidateX;
+            nextY = candidateY;
+            break;
+          }
+        }
+
+        btnStillMad.style.position = "fixed";
+        btnStillMad.style.left = `${Math.round(nextX)}px`;
+        btnStillMad.style.top = `${Math.round(nextY)}px`;
+        btnStillMad.textContent = dodgeTexts[(dodgeCount - 1) % dodgeTexts.length];
+
+        // Gently grow the "Sudah dong" button as she chases the runaway one
+        const scale = Math.min(1.28, 1 + dodgeCount * 0.04);
+        btnAllGood.style.transform = `scale(${scale})`;
+
+        if (dodgeCount >= 3) {
+          trapHint.textContent = "Hehe tombolnya gak mau diklik tuh, pencet 'Sudah dong ❤️' aja yuk~";
+        }
+      }
+
+      btnStillMad.addEventListener("mouseenter", moveTrapButton);
+      btnStillMad.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          moveTrapButton();
+        },
+        { passive: false }
+      );
+      btnStillMad.addEventListener("click", (e) => {
+        e.preventDefault();
+        moveTrapButton();
+      });
+
+      // --- Stage 4: Final Love Letter & Pecel Lele ---
+      btnAllGood.addEventListener("click", () => {
+        resetTrapButton();
+        playCelebration();
+        goToStage(4);
+
+        // Big celebratory heart confetti bursts
+        spawnHeartBurst(window.innerWidth * 0.3, window.innerHeight * 0.45, 30);
+        spawnHeartBurst(window.innerWidth * 0.7, window.innerHeight * 0.45, 30);
+        setTimeout(() => {
+          spawnHeartBurst(window.innerWidth * 0.5, window.innerHeight * 0.3, 35);
+        }, 260);
+      });
+
+      // --- Restart ---
+      document.getElementById("btn-restart").addEventListener("click", () => {
+        busterClicks = 0;
+        clickCounter.style.display = "none";
+        messageText.textContent = "Pencet tombol pink di atas buat mulai dosis semangat & gombalan! ✨";
+        btnToStage3.classList.remove("is-visible");
+        resetTrapButton();
+        playPopChime(0);
+        goToStage(1);
+      });
+    })();
+  </script>
+</body>
+</html>
+
